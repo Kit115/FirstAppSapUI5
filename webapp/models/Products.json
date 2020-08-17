@@ -1,0 +1,36 @@
+{
+    "Products" : [
+        {
+            "ProductID" : 1,
+            "ProductName": "iPhone",
+            "Category": "phone", 
+            "Price": 799.99,
+            "Supplier": "Apple inc.",
+            "InStock" : true
+        },
+        {
+            "ProductID" : 2,
+            "ProductName": "GalaxyS20",
+            "Category": "phone", 
+            "Price": 759.99,
+            "Supplier": "Samsung",
+            "InStock" : true
+        },
+        {
+            "ProductID" : 3,
+            "ProductName": "MacBook Pro",
+            "Category": "laptopPc", 
+            "Price": 1499.99,
+            "Supplier": "Apple inc.",
+            "InStock" : true
+        },
+        {
+            "ProductID" : 4,
+            "ProductName": "BraviaS2",
+            "Category": "television", 
+            "Price": 4999.99,
+            "Supplier": "Sony",
+            "InStock" : false
+        }
+    ]
+}

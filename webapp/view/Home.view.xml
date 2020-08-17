@@ -1,0 +1,98 @@
+<mvc:View
+    controllerName="sap.ui.selfmade.appOne.controller.Home"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc" 
+>   
+
+    <Panel
+        headerText="Hello this is Text"
+        class="sapUiResponsiveMargin"
+        width="auto"
+    >
+        <Button id="button1" text="press me!" press=".onButtonPress"/> 
+    </Panel> 
+    <Panel
+        headerText="this also is Text"
+        class="sapUiResponsiveMargin"
+        width="auto"
+    > 
+        <List
+            id="ProductList" 
+            headerText="Products" 
+            items="{
+                path : 'productModel>/Products'
+            }"
+        > 
+            <items> 
+                <ObjectListItem
+                    title="{productModel>ProductName} ({productModel>Supplier})"
+                    number="{productModel>Price}"
+                    type="Active"
+                    press=".onItemSelected"
+                >   
+                     
+                </ObjectListItem>   
+            </items> 
+        </List> 
+    </Panel> 
+    
+    <Panel
+        headerText="tableTry"
+    > 
+        <Table
+            class="sapUiResponsiveMargin"
+            width="auto"
+            items="{
+                path : 'productModel>/Products',
+                sorter : {
+                    path : 'Supplier',
+                    descending : false,
+                    group : true
+                }
+            }"
+        > 
+            <headerToolbar> 
+                <Toolbar> 
+                    <Title text="This is a Table"/> 
+                    <ToolbarSpacer/> 
+                    <Button text="add Product" press=".onAddProduct"/> 
+                </Toolbar> 
+            </headerToolbar> 
+
+            <columns>
+                <Column width="7em">
+                    <Text text="ProductID"/> 
+                </Column>  
+                <Column >
+                    <Text text="Name"/> 
+                </Column>  
+                <Column>
+                    <Text text="Category"/> 
+                </Column>  
+                <Column>
+                    <Text text="Supplier"/> 
+                </Column>  
+                <Column>
+                    <Text text=""/> 
+                </Column>  
+                <Column hAlign="End">
+                    <Text text="Price"/> 
+                </Column>  
+            </columns> 
+
+            <items> 
+                <ColumnListItem> 
+                    <cells> 
+                        <ObjectNumber number="{productModel>ProductID}" emphasized="false"/> 
+                        <ObjectIdentifier title="{productModel>ProductName}"/> 
+                        <ObjectIdentifier title="{productModel>Category}"/> 
+                        <ObjectIdentifier title="{productModel>Supplier}"/> 
+                        <ObjectIdentifier title="{= ${productModel>InStock} ? 'In Stock' : 'Out of Stock'}" state="{= ${productModel>InStock} ? 'Success' : 'Error'}"/>
+                        <ObjectNumber number="{productModel>Price}" emphasized="true"/> 
+                    </cells> 
+                </ColumnListItem>
+            </items> 
+        </Table> 
+    </Panel> 
+
+</mvc:View> 

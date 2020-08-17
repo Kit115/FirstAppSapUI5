@@ -1,0 +1,15 @@
+{
+  "name": "firstappsapui5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ui5/cli": "^2.4.1",
+    "ui5-middleware-livereload": "^0.4.1"
+  }
+}
