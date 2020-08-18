@@ -59,10 +59,10 @@
 					"fallbackLocale": ""
 				}
 			},
-			"Products": {
+			"productModel": {
                 "type" : "sap.ui.model.json.JSONModel",
                 "uri" : "models/Products.json"
-            }
+			}
 		}
 	}
 }

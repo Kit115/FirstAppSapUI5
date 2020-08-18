@@ -8,6 +8,9 @@ sap.ui.define([
         onButtonPress : function () {
             MessageToast.show("Hello");
             console.log(sap.ui.getCore().getModel("productModel").getJSON());
+        },
+        onSelectChange : function () {
+            alert(this.getView().getModel("productTemplate").getProperty("/SortByTest"));
         }
     });
 });

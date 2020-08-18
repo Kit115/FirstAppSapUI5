@@ -2,6 +2,7 @@
     controllerName="sap.ui.selfmade.appOne.controller.Home"
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:core = "sap.ui.core"
 >   
 
     <Panel
@@ -12,50 +13,38 @@
         <Button id="button1" text="press me!" press=".onButtonPress"/> 
     </Panel> 
     <Panel
-        headerText="this also is Text"
-        class="sapUiResponsiveMargin"
-        width="auto"
-    > 
-        <List
-            id="ProductList" 
-            headerText="Products" 
-            items="{
-                path : 'productModel>/Products'
-            }"
-        > 
-            <items> 
-                <ObjectListItem
-                    title="{productModel>ProductName} ({productModel>Supplier})"
-                    number="{productModel>Price}"
-                    type="Active"
-                    press=".onItemSelected"
-                >   
-                     
-                </ObjectListItem>   
-            </items> 
-        </List> 
-    </Panel> 
-    
-    <Panel
-        headerText="tableTry"
+        headerText=""
     > 
         <Table
             class="sapUiResponsiveMargin"
             width="auto"
             items="{
-                path : 'productModel>/Products',
-                sorter : {
-                    path : 'Supplier',
-                    descending : false,
-                    group : true
-                }
-            }"
+                    path : 'productModel>/Products',
+                    sorter : {
+                        path : 'Category',
+                        descending : false,
+                        group : true
+                    }
+                }"
         > 
             <headerToolbar> 
                 <Toolbar> 
-                    <Title text="This is a Table"/> 
+                    <Title text="{productTemplate>/SortByTest}" titleStyle="H1"/> 
                     <ToolbarSpacer/> 
                     <Button text="add Product" press=".onAddProduct"/> 
+                    <Select
+                        id="select"
+                        enabled="true"
+                        editable="true"
+                        forceSelection="false"
+                        selectedKey="{productTemplate>/SortByTest}"
+                        change="onSelectChange"
+                    > 
+                        <core:Item key="Supplier" text="Supplier"/>
+                        <core:Item key="Category" text="Category"/>
+                        <core:Item key="InStock" text="InStock"/>
+                 
+                    </Select>  
                 </Toolbar> 
             </headerToolbar> 
 
@@ -87,7 +76,7 @@
                         <ObjectIdentifier title="{productModel>ProductName}"/> 
                         <ObjectIdentifier title="{productModel>Category}"/> 
                         <ObjectIdentifier title="{productModel>Supplier}"/> 
-                        <ObjectIdentifier title="{= ${productModel>InStock} ? 'In Stock' : 'Out of Stock'}" state="{= ${productModel>InStock} ? 'Success' : 'Error'}"/>
+                        <ObjectIdentifier title="{= ${productModel>InStock} ? 'In Stock' : 'Out of Stock'}"/>
                         <ObjectNumber number="{productModel>Price}" emphasized="true"/> 
                     </cells> 
                 </ColumnListItem>
