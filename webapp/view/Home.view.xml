@@ -64,7 +64,10 @@
             </columns> 
 
             <items> 
-                <ColumnListItem> 
+                <ColumnListItem
+                    type="Navigation" 
+                    press="onSelectItem" 
+                > 
                     <cells> 
                         <ObjectNumber number="{productModel>ProductID}" emphasized="false"/> 
                         <ObjectIdentifier title="{productModel>ProductName}"/> 

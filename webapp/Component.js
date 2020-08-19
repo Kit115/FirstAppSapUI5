@@ -26,7 +26,7 @@ sap.ui.define([
 
             this.setModel(oModel, "productTemplate");
 
-            
+            this.getRouter().initialize();
         }
     }); 
 });
