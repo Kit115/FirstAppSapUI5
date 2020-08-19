@@ -20,8 +20,9 @@ sap.ui.define([
                     Supplier: "",
                     InStock: true
                 },
-                SortByTest : ""
+                SortByTest : "",
 
+                ProductEditable : false
             });
 
             this.setModel(oModel, "productTemplate");

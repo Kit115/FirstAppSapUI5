@@ -2,6 +2,7 @@
     controllerName="sap.ui.selfmade.appOne.controller.Detail"
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"  
+    xmlns:form="sap.ui.layout.form"
 >
     <Page
         title="DetailPage"
@@ -13,6 +14,36 @@
             title="{productModel>ProductName}"
         /> 
         <Panel> 
+            <headerToolbar> 
+                <Toolbar> 
+                    <Title text="Product Details" titleStyle="H2"/> 
+                    <ToolbarSpacer/> 
+                    <FormattedText htmlText="Editable:"/> 
+                    <Switch state="{productTemplate>/ProductEditable}" customTextOn=" " customTextOff=" "/> 
+                </Toolbar>
+            </headerToolbar>  
+            <content> 
+            <form:SimpleForm editable="true" layout="ColumnLayout">
+                <Label  text="Name"/>
+                <Input  value="{productModel>ProductName}" valueLiveUpdate="true" width="300px" 
+                        enabled="{productTemplate>/ProductEditable}"
+                />  
+                <Label  text="Category"/>
+                <Input  value="{productModel>Category}" valueLiveUpdate="true" width="300px" 
+                        enabled="{productTemplate>/ProductEditable}"
+                />  
+                <Label  text="Supplier"/>
+                <Input  value="{productModel>Supplier}" valueLiveUpdate="true" width="300px" 
+                        enabled="{productTemplate>/ProductEditable}"
+                />  
+                <Label  text="Price"/>
+                <Input  value="{productModel>Price}" type="Number" valueLiveUpdate="true" width="300px" 
+                    	enabled="{productTemplate>/ProductEditable}"
+                />  
+                <Label text="In Stock"/>
+                <CheckBox selected="{productModel>InStock}" enabled="{productTemplate>/ProductEditable}"/>  
+            </form:SimpleForm>
+            </content>  
         </Panel>
     </Page> 
 </mvc:View> 

@@ -1,7 +1,6 @@
 <mvc:View
     controllerName="sap.ui.selfmade.appOne.controller.Home"
     xmlns="sap.m"
-    xmlns:form="sap.ui.layout.form"
     xmlns:mvc="sap.ui.core.mvc" 
     xmlns:core = "sap.ui.core"
 >   
