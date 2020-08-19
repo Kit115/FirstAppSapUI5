@@ -63,6 +63,38 @@
                 "type" : "sap.ui.model.json.JSONModel",
                 "uri" : "models/Products.json"
 			}
+		},
+		"routing": {
+			"config" : {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "sap.ui.selfmade.appOne.view",
+				"controlId": "app",
+				"controllAggregation": "pages",
+				"async": true
+			},
+			"routes" : [
+				{
+					"pattern": "", 
+					"name": "overView",
+					"target": "overview"
+				},
+				{
+					"pattern": "detail",
+					"name": "detail", 
+					"target": "detail"
+				}
+			],
+			"targets" : {
+				"overview" : {
+					"viewId": "overview",
+					"viewName": "Overview"
+				},
+				"detail" : {
+					"viewId": "detail",
+					"viewName": "Detail"
+				}
+			}
 		}
 	}
 }
