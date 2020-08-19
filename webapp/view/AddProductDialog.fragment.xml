@@ -1,0 +1,34 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Dialog
+        id="helloDialog"
+        title="Add Product"
+        resizeable="true"
+    > 
+        <content>
+            <FormattedText htmlText="Name"/>  
+            <Input value="{productTemplate>/newProduct/ProductName}" valueLiveUpdate="true" placeholder="e.g. IMac"/> 
+            
+            <FormattedText htmlText="Category"/>  
+            <Input value="{productTemplate>/newProduct/Category}" valueLiveUpdate="true" placeholder="e.g. desktopPc"/> 
+            
+            <FormattedText htmlText="Price"/>  
+            <Input value="{productTemplate>/newProduct/Price}" valueLiveUpdate="true" type="Number" placeholder="e.g. 2899.99"/> 
+            
+            <FormattedText htmlText="Supplier"/>  
+            <Input value="{productTemplate>/newProduct/Supplier}" valueLiveUpdate="true" placeholder="e.g. Apple inc."/> 
+            
+            <FormattedText htmlText="In Stock"/>  
+            <CheckBox selected="{productTemplate>/newProduct/InStock}"/> 
+    
+        </content>  
+        <beginButton> 
+            <Button text="Add" press=".onAddProduct"/> 
+        </beginButton>
+        <endButton> 
+            <Button text="Cancel" press=".onCancelDialog"/> 
+        </endButton>
+    </Dialog> 
+</core:FragmentDefinition> 

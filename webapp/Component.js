@@ -11,15 +11,17 @@ sap.ui.define([
             UIComponent.prototype.init.apply(this, arguments);
             
             var oModel = new JSONModel({
-                Product : {
+                
+                newProduct : {
                     ProductID: "",
                     ProductName: "",
                     Category: "",
                     Price: "",
                     Supplier: "",
-                    InStock: ""
+                    InStock: true
                 },
                 SortByTest : ""
+
             });
 
             this.setModel(oModel, "productTemplate");
