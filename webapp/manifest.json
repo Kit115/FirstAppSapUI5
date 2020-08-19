@@ -80,7 +80,7 @@
 					"target": "home"
 				},
 				{
-					"pattern": "detail",
+					"pattern": "detail/{productPath}",
 					"name": "detail", 
 					"target": "detail"
 				}

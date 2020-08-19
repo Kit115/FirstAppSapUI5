@@ -60,8 +60,11 @@ sap.ui.define([
             MessageToast.show(this.getView().getModel("productTemplate").getProperty("/SortByTest"));
         },
         onSelectProduct : function (oEvent) {
+            var oItem = oEvent.getSource();
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this); 
-            oRouter.navTo("detail"); 
+            oRouter.navTo("detail", {
+                productPath: window.encodeURIComponent(oItem.getBindingContext("productModel").getPath().substr(1))
+            }); 
         }
     });
 });

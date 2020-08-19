@@ -7,7 +7,14 @@ sap.ui.define([
 
     return Controller.extend("sao.ui.selfmade.appOne.controller.Detail", {
         onInit : function () {
-
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this); 
+            oRouter.getRoute("detail").attachPatternMatched(this._onObjectMatched, this);
+        },
+        _onObjectMatched : function (oEvent) {
+            this.getView().bindElement({
+                path: "/" + window.decodeURIComponent(oEvent.getParameter("arguments").productPath),
+                model: "productModel" 
+            });
         },
         onNavBack: function () {
             var oHistory = History.getInstance(); 
