@@ -20,6 +20,8 @@
                     <Toolbar> 
                         <Title text="Products:" titleStyle="H1"/> 
                         <ToolbarSpacer/> 
+                        <Text text="Editable:"/> 
+                        <Switch customTextOn=" " customTextOff=" " state="{productTemplate>/ProductEditable}"/> 
                         <Text text="Sort By:"/> 
                         <Select
                             id="select"
@@ -53,7 +55,7 @@
                         <Text text="Supplier"/> 
                     </Column>  
                     <Column>
-                        <Text text=""/> 
+                        <Text text="In Stock"/> 
                     </Column>  
                     <Column hAlign="End">
                         <Text text="Price"/> 
@@ -66,12 +68,18 @@
                         press="onSelectProduct" 
                     > 
                         <cells> 
+                            <!-- <ObjectIdentifier title="{productModel>ProductName}"/> 
+                                <ObjectIdentifier title="{productModel>Category}"/> 
+                                <ObjectIdentifier title="{productModel>Supplier}"/> 
+                                <ObjectIdentifier title="{= ${productModel>InStock} ? 'In Stock' : 'Out of Stock'}"/>
+                                <ObjectNumber number="{productModel>Price} €" emphasized="true"/> 
+                            -->
                             <ObjectNumber number="{productModel>ProductID}" emphasized="false"/> 
-                            <ObjectIdentifier title="{productModel>ProductName}"/> 
-                            <ObjectIdentifier title="{productModel>Category}"/> 
-                            <ObjectIdentifier title="{productModel>Supplier}"/> 
-                            <ObjectIdentifier title="{= ${productModel>InStock} ? 'In Stock' : 'Out of Stock'}"/>
-                            <ObjectNumber number="{productModel>Price} €" emphasized="true"/> 
+                            <Input value="{productModel>ProductName}" valueLiveUpdate="true" width="130px" enabled="{productTemplate>/ProductEditable}"/> 
+                            <Input value="{productModel>Category}" valueLiveUpdate="true" width="130px" enabled="{productTemplate>/ProductEditable}"/> 
+                            <Input value="{productModel>Supplier}" valueLiveUpdate="true" width="130px" enabled="{productTemplate>/ProductEditable}"/> 
+                            <CheckBox selected="{productModel>InStock}" enabled="{productTemplate>/ProductEditable}"/> 
+                            <Input value="{productModel>Price}" valueLiveUpdate="true" width="100px" enabled="{productTemplate>/ProductEditable}"/> 
                         </cells> 
                     </ColumnListItem>
                 </items> 
