@@ -68,7 +68,8 @@
                         press="onSelectProduct" 
                     > 
                         <cells> 
-                            <!-- <ObjectIdentifier title="{productModel>ProductName}"/> 
+                            <!-- 
+                                <ObjectIdentifier title="{productModel>ProductName}"/> 
                                 <ObjectIdentifier title="{productModel>Category}"/> 
                                 <ObjectIdentifier title="{productModel>Supplier}"/> 
                                 <ObjectIdentifier title="{= ${productModel>InStock} ? 'In Stock' : 'Out of Stock'}"/>
