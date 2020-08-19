@@ -1,8 +1,8 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/m/MessageToast",
-    "sap/ui/core/Fragment"
-], (Controller, MessageToast, Fragment) => {
+    "sap/ui/core/Fragment",
+    "sap/ui/model/Sorter" 
+], (Controller, Fragment, Sorter) => {
     "use strict";
 
     return Controller.extend("sap.ui.selfmade.appOne.controller.Home", {
@@ -32,9 +32,6 @@ sap.ui.define([
             oProductTemplate.setProperty("/newProduct/Supplier", "");
             oProductTemplate.setProperty("/newProduct/InStock", true);
         },
-        onSelectChange : function () {
-            MessageToast.show(this.getView().getModel("productTemplate").getProperty("/SortByTest"));
-        },
         onAddProduct : function () {
             var oView = this.getView(); 
             var oProductTemplate = oView.getModel("productTemplate"); 
@@ -58,6 +55,25 @@ sap.ui.define([
             oProductTemplate.setProperty("/newProduct/Supplier", "");
             oProductTemplate.setProperty("/newProduct/InStock", true);
             this.byId("helloDialog").close();
+        },
+        onSelectChange : function () {
+
+            var oAttribute = this.getView().getModel("productTemplate").getProperty("/SortByTest");
+
+            var oSorter = new Sorter({
+                path: oAttribute,
+                descending: false,
+                group: (oAttribute === "Price") ? false : true
+            })
+            var oList = this.byId("productTable");
+            oList.getBinding("items").sort(oSorter);
+        },
+        onSelectProduct : function (oEvent) {
+            var oItem = oEvent.getSource();
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this); 
+            oRouter.navTo("detail", {
+                productPath: window.encodeURIComponent(oItem.getBindingContext("productModel").getPath().substr(1))
+            }); 
         }
     });
 });

@@ -20,13 +20,14 @@ sap.ui.define([
                     Supplier: "",
                     InStock: true
                 },
-                SortByTest : ""
+                SortByTest : "Price",
 
+                ProductEditable : false
             });
 
             this.setModel(oModel, "productTemplate");
 
-            
+            this.getRouter().initialize();
         }
     }); 
 });

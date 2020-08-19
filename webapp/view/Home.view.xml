@@ -1,104 +1,90 @@
 <mvc:View
     controllerName="sap.ui.selfmade.appOne.controller.Home"
     xmlns="sap.m"
-    xmlns:form="sap.ui.layout.form"
     xmlns:mvc="sap.ui.core.mvc" 
     xmlns:core = "sap.ui.core"
 >   
-    <Shell> 
-    <Panel
-        headerText=""
-    > 
-        <Table
-            class="sapUiResponsiveMargin"
-            width="auto"
-            items="{
-                    path : 'productModel>/Products',
-                    sorter : {
-                        path : '{productTemplate/}}',
-                        descending : false,
-                        group : true
-                    }
-                }"
+    
+        <Panel
+            headerText=""
         > 
-            <headerToolbar> 
-                <Toolbar> 
-                    <Title text="Products:" titleStyle="H1"/> 
-                    <ToolbarSpacer/> 
-                    <Button text="Add Product" press=".onOpenDialog"/> 
-                    <Select
-                        id="select"
-                        enabled="true"
-                        editable="true"
-                        forceSelection="false"
-                        selectedKey="{productTemplate>/SortByTest}"
-                        change="onSelectChange"
+            <Table
+                id="productTable"
+                class="sapUiResponsiveMargin"
+                width="auto"
+                items="{
+                        path : 'productModel>/Products'
+                    }"
+            > 
+                <headerToolbar> 
+                    <Toolbar> 
+                        <Title text="Products:" titleStyle="H1"/> 
+                        <ToolbarSpacer/> 
+                        <Text text="Editable:"/> 
+                        <Switch customTextOn=" " customTextOff=" " state="{productTemplate>/ProductEditable}"/> 
+                        <Text text="Sort By:"/> 
+                        <Select
+                            id="select"
+                            enabled="true"
+                            editable="true"
+                            forceSelection="false"
+                            selectedKey="{productTemplate>/SortByTest}"
+                            change="onSelectChange"
+                        > 
+                            <core:Item key="Supplier" text="Supplier"/>
+                            <core:Item key="Category" text="Category"/>
+                            <core:Item key="InStock" text="InStock"/>
+                            <core:Item key="Price" text="Price"/>
+                    
+                        </Select>  
+                        <Button text="Add Product" press=".onOpenDialog"/> 
+                    </Toolbar> 
+                </headerToolbar> 
+
+                <columns>
+                    <Column width="7em">
+                        <Text text="ProductID"/> 
+                    </Column>  
+                    <Column >
+                        <Text text="Name"/> 
+                    </Column>  
+                    <Column>
+                        <Text text="Category"/> 
+                    </Column>  
+                    <Column>
+                        <Text text="Supplier"/> 
+                    </Column>  
+                    <Column>
+                        <Text text="In Stock"/> 
+                    </Column>  
+                    <Column hAlign="End">
+                        <Text text="Price"/> 
+                    </Column>  
+                </columns> 
+
+                <items> 
+                    <ColumnListItem
+                        type="Navigation" 
+                        press="onSelectProduct" 
                     > 
-                        <core:Item key="Supplier" text="Supplier"/>
-                        <core:Item key="Category" text="Category"/>
-                        <core:Item key="InStock" text="InStock"/>
-                 
-                    </Select>  
-                </Toolbar> 
-            </headerToolbar> 
+                        <cells> 
+                            <!-- 
+                                <ObjectIdentifier title="{productModel>ProductName}"/> 
+                                <ObjectIdentifier title="{productModel>Category}"/> 
+                                <ObjectIdentifier title="{productModel>Supplier}"/> 
+                                <ObjectIdentifier title="{= ${productModel>InStock} ? 'In Stock' : 'Out of Stock'}"/>
+                                <ObjectNumber number="{productModel>Price} €" emphasized="true"/> 
+                            -->
+                            <ObjectNumber number="{productModel>ProductID}" emphasized="false"/> 
+                            <Input value="{productModel>ProductName}" valueLiveUpdate="true" width="130px" enabled="{productTemplate>/ProductEditable}"/> 
+                            <Input value="{productModel>Category}" valueLiveUpdate="true" width="130px" enabled="{productTemplate>/ProductEditable}"/> 
+                            <Input value="{productModel>Supplier}" valueLiveUpdate="true" width="130px" enabled="{productTemplate>/ProductEditable}"/> 
+                            <CheckBox selected="{productModel>InStock}" enabled="{productTemplate>/ProductEditable}"/> 
+                            <Input value="{productModel>Price}" valueLiveUpdate="true" width="100px" enabled="{productTemplate>/ProductEditable}"/> 
+                        </cells> 
+                    </ColumnListItem>
+                </items> 
+            </Table> 
+        </Panel> 
 
-            <columns>
-                <Column width="7em">
-                    <Text text="ProductID"/> 
-                </Column>  
-                <Column >
-                    <Text text="Name"/> 
-                </Column>  
-                <Column>
-                    <Text text="Category"/> 
-                </Column>  
-                <Column>
-                    <Text text="Supplier"/> 
-                </Column>  
-                <Column>
-                    <Text text=""/> 
-                </Column>  
-                <Column hAlign="End">
-                    <Text text="Price"/> 
-                </Column>  
-            </columns> 
-
-            <items> 
-                <ColumnListItem> 
-                    <cells> 
-                        <ObjectNumber number="{productModel>ProductID}" emphasized="false"/> 
-                        <ObjectIdentifier title="{productModel>ProductName}"/> 
-                        <ObjectIdentifier title="{productModel>Category}"/> 
-                        <ObjectIdentifier title="{productModel>Supplier}"/> 
-                        <ObjectIdentifier title="{= ${productModel>InStock} ? 'In Stock' : 'Out of Stock'}"/>
-                        <ObjectNumber number="{productModel>Price} €" emphasized="true"/> 
-                    </cells> 
-                </ColumnListItem>
-            </items> 
-        </Table> 
-    </Panel> 
-<!-- 
-    <Panel headerText="Add new Product"> 
-        <form:SimpleForm editable="true" layout="ColumnLayout"> 
-            <Label text="ProductName"/>
-            <Input value="{productTemplate>/newProduct/ProductName}" valueLiveUpdate="true" placeholder="e.g. IMac"/>
-              
-            <Label text="Category"/>
-            <Input value="{productTemplate>/newProduct/Category}" valueLiveUpdate="true" placeholder="e.g. desktopPc"/>
-              
-            <Label text="Price"/>
-            <Input value="{productTemplate>/newProduct/Price}" valueLiveUpdate="true" type="Number" placeholder="e.g. 2899.99"/>
-              
-            <Label text="Supplier"/>
-            <Input value="{productTemplate>/newProduct/Supplier}" valueLiveUpdate="true" placeholder="Apple inc."/>
-              
-            <Label text="In Stock:"/>
-            <CheckBox selected="{productTemplate>/newProduct/InStock}"/>
-
-            <Button text="add" press="addProduct"/> 
-
-        </form:SimpleForm> 
-    </Panel>
--->
-    </Shell>  
 </mvc:View> 

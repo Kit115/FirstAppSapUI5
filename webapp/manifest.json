@@ -36,7 +36,7 @@
   	},
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "sap.ui.selfmade.appOne.view.Home",
+			"viewName": "sap.ui.selfmade.appOne.view.App",
 			"type": "XML",
 			"async": true,
 			"id": "app"
@@ -62,6 +62,45 @@
 			"productModel": {
                 "type" : "sap.ui.model.json.JSONModel",
                 "uri" : "models/Products.json"
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config" : {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "sap.ui.selfmade.appOne.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"async": true
+			},
+			"routes" : [
+				{
+					"pattern": "", 
+					"name": "home",
+					"target": "home"
+				},
+				{
+					"pattern": "detail/{productPath}",
+					"name": "detail", 
+					"target": "detail"
+				}
+			],
+			"targets" : {
+				"home" : {
+					"viewId": "home",
+					"viewName": "Home"
+				},
+				"detail" : {
+					"viewId": "detail",
+					"viewName": "Detail"
+				}
 			}
 		}
 	}

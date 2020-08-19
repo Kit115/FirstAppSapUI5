@@ -1,0 +1,13 @@
+{
+    "Employees" : [
+        {
+            "firstName" : "Johnny", 
+            "lastName" : "Silverhand",
+            "street" : "700Main-St.",
+            "city" : "Los Angeles",
+            "zipCode" : 90001,
+            "mobile" : "555-99317",
+            "employeeStatus" : "active"   
+        }
+    ]
+}
