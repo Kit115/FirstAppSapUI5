@@ -14,7 +14,7 @@
                 items="{
                         path : 'productModel>/Products',
                         sorter : {
-                            path : '{productTemplate/}}',
+                            path : 'Supplier',
                             descending : false,
                             group : true
                         }
