@@ -32,9 +32,6 @@ sap.ui.define([
             oProductTemplate.setProperty("/newProduct/Supplier", "");
             oProductTemplate.setProperty("/newProduct/InStock", true);
         },
-        onSelectChange : function () {
-            MessageToast.show(this.getView().getModel("productTemplate").getProperty("/SortByTest"));
-        },
         onAddProduct : function () {
             var oView = this.getView(); 
             var oProductTemplate = oView.getModel("productTemplate"); 
@@ -58,6 +55,13 @@ sap.ui.define([
             oProductTemplate.setProperty("/newProduct/Supplier", "");
             oProductTemplate.setProperty("/newProduct/InStock", true);
             this.byId("helloDialog").close();
+        },
+        onSelectChange : function () {
+            MessageToast.show(this.getView().getModel("productTemplate").getProperty("/SortByTest"));
+        },
+        onSelectProduct : function (oEvent) {
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this); 
+            oRouter.navTo("detail"); 
         }
     });
 });

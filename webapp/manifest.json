@@ -36,7 +36,7 @@
   	},
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "sap.ui.selfmade.appOne.view.Home",
+			"viewName": "sap.ui.selfmade.appOne.view.App",
 			"type": "XML",
 			"async": true,
 			"id": "app"
@@ -70,14 +70,14 @@
 				"viewType": "XML",
 				"viewPath": "sap.ui.selfmade.appOne.view",
 				"controlId": "app",
-				"controllAggregation": "pages",
+				"controlAggregation": "pages",
 				"async": true
 			},
 			"routes" : [
 				{
 					"pattern": "", 
-					"name": "overView",
-					"target": "overview"
+					"name": "home",
+					"target": "home"
 				},
 				{
 					"pattern": "detail",
@@ -86,9 +86,9 @@
 				}
 			],
 			"targets" : {
-				"overview" : {
-					"viewId": "overview",
-					"viewName": "Overview"
+				"home" : {
+					"viewId": "home",
+					"viewName": "Home"
 				},
 				"detail" : {
 					"viewId": "detail",

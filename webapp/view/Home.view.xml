@@ -66,7 +66,7 @@
             <items> 
                 <ColumnListItem
                     type="Navigation" 
-                    press="onSelectItem" 
+                    press="onSelectProduct" 
                 > 
                     <cells> 
                         <ObjectNumber number="{productModel>ProductID}" emphasized="false"/> 
