@@ -9,22 +9,18 @@
             headerText=""
         > 
             <Table
+                id="productTable"
                 class="sapUiResponsiveMargin"
                 width="auto"
                 items="{
-                        path : 'productModel>/Products',
-                        sorter : {
-                            path : 'Supplier',
-                            descending : false,
-                            group : true
-                        }
+                        path : 'productModel>/Products'
                     }"
             > 
                 <headerToolbar> 
                     <Toolbar> 
                         <Title text="Products:" titleStyle="H1"/> 
                         <ToolbarSpacer/> 
-                        <Button text="Add Product" press=".onOpenDialog"/> 
+                        <Text text="Sort By:"/> 
                         <Select
                             id="select"
                             enabled="true"
@@ -36,8 +32,10 @@
                             <core:Item key="Supplier" text="Supplier"/>
                             <core:Item key="Category" text="Category"/>
                             <core:Item key="InStock" text="InStock"/>
+                            <core:Item key="Price" text="Price"/>
                     
                         </Select>  
+                        <Button text="Add Product" press=".onOpenDialog"/> 
                     </Toolbar> 
                 </headerToolbar> 
 

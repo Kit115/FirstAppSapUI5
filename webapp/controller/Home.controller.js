@@ -1,8 +1,8 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/m/MessageToast",
-    "sap/ui/core/Fragment"
-], (Controller, MessageToast, Fragment) => {
+    "sap/ui/core/Fragment",
+    "sap/ui/model/Sorter" 
+], (Controller, Fragment, Sorter) => {
     "use strict";
 
     return Controller.extend("sap.ui.selfmade.appOne.controller.Home", {
@@ -57,7 +57,16 @@ sap.ui.define([
             this.byId("helloDialog").close();
         },
         onSelectChange : function () {
-            MessageToast.show(this.getView().getModel("productTemplate").getProperty("/SortByTest"));
+
+            var oAttribute = this.getView().getModel("productTemplate").getProperty("/SortByTest");
+
+            var oSorter = new Sorter({
+                path: oAttribute,
+                descending: false,
+                group: (oAttribute === "Price") ? false : true
+            })
+            var oList = this.byId("productTable");
+            oList.getBinding("items").sort(oSorter);
         },
         onSelectProduct : function (oEvent) {
             var oItem = oEvent.getSource();
