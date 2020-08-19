@@ -22,27 +22,28 @@
                     <Switch state="{productTemplate>/ProductEditable}" customTextOn=" " customTextOff=" "/> 
                 </Toolbar>
             </headerToolbar>  
+
             <content> 
-            <form:SimpleForm editable="true" layout="ColumnLayout">
-                <Label  text="Name"/>
-                <Input  value="{productModel>ProductName}" valueLiveUpdate="true" width="300px" 
-                        enabled="{productTemplate>/ProductEditable}"
-                />  
-                <Label  text="Category"/>
-                <Input  value="{productModel>Category}" valueLiveUpdate="true" width="300px" 
-                        enabled="{productTemplate>/ProductEditable}"
-                />  
-                <Label  text="Supplier"/>
-                <Input  value="{productModel>Supplier}" valueLiveUpdate="true" width="300px" 
-                        enabled="{productTemplate>/ProductEditable}"
-                />  
-                <Label  text="Price"/>
-                <Input  value="{productModel>Price}" type="Number" valueLiveUpdate="true" width="300px" 
-                    	enabled="{productTemplate>/ProductEditable}"
-                />  
-                <Label text="In Stock"/>
-                <CheckBox selected="{productModel>InStock}" enabled="{productTemplate>/ProductEditable}"/>  
-            </form:SimpleForm>
+                <form:SimpleForm editable="true" layout="ColumnLayout">
+                    <Label  text="Name"/>
+                    <Input  value="{productModel>ProductName}" valueLiveUpdate="true" width="300px" 
+                            enabled="{productTemplate>/ProductEditable}"
+                    />  
+                    <Label  text="Category"/>
+                    <Input  value="{productModel>Category}" valueLiveUpdate="true" width="300px" 
+                            enabled="{productTemplate>/ProductEditable}"
+                    />  
+                    <Label  text="Supplier"/>
+                    <Input  value="{productModel>Supplier}" valueLiveUpdate="true" width="300px" 
+                            enabled="{productTemplate>/ProductEditable}"
+                    />  
+                    <Label  text="Price"/>
+                    <Input  value="{productModel>Price}" type="Number" valueLiveUpdate="true" width="300px" 
+                            enabled="{productTemplate>/ProductEditable}"
+                    />  
+                    <Label text="In Stock"/>
+                    <CheckBox selected="{productModel>InStock}" enabled="{productTemplate>/ProductEditable}"/>  
+                </form:SimpleForm>
             </content>  
         </Panel>
     </Page> 
