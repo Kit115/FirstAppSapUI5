@@ -62,6 +62,10 @@
 			"productModel": {
                 "type" : "sap.ui.model.json.JSONModel",
                 "uri" : "models/Products.json"
+			},
+			"employeeModel" : {
+				"type" : "sap.ui.model.json.JSONModel",
+				"uri" : "models/Employees.json"
 			}
 		},
 		"resources": {
