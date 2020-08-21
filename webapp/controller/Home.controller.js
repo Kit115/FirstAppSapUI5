@@ -60,18 +60,23 @@ sap.ui.define([
 
             var oAttribute = this.getView().getModel("productTemplate").getProperty("/SortBy");
             var oDescending = this.getView().getModel("productTemplate").getProperty("/Descending"); 
+            var oGroup = this.getView().getModel("productTemplate").getProperty("/Group"); 
 
             var oSorter = new Sorter({
                 path: oAttribute,
                 descending: oDescending,
-                group: (oAttribute === "Price") ? false : true
-            })
+                group: oGroup
+            });
             var oList = this.byId("productTable");
             oList.getBinding("items").sort(oSorter);
         },
         onToggleDescending : function () {
             this.getView().getModel("productTemplate").setProperty("/Descending", !this.getView().getModel("productTemplate").getProperty("/Descending"));
             this.onSelectChange();
+        },
+        onToggleGroup : function () {
+            this.getView().getModel("productTemplate").setProperty("/Group", !this.getView().getModel("productTemplate").getProperty("/Group"));
+            this.onSelectChange(); 
         },
         onSelectProduct : function (oEvent) {
             var oItem = oEvent.getSource();

@@ -13,7 +13,12 @@
                 class="sapUiResponsiveMargin"
                 width="auto"
                 items="{
-                        path : 'productModel>/Products'
+                        path : 'productModel>/Products',
+                        sorter : {
+                            path: 'Supplier',
+                            group: true,
+                            descending: false
+                        }
                     }"
             > 
                 <headerToolbar> 
@@ -38,6 +43,7 @@
                     
                         </Select>  
                         <ToggleButton icon="sap-icon://sort" press=".onToggleDescending"/> 
+                        <ToggleButton id="toggleGroup" icon="sap-icon://group-2" press=".onToggleGroup" pressed="true"/> 
                         <Button text="Add Product" press=".onOpenDialog"/> 
                     </Toolbar> 
                 </headerToolbar> 
