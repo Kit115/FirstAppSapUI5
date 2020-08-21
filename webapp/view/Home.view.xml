@@ -28,7 +28,7 @@
                             enabled="true"
                             editable="true"
                             forceSelection="false"
-                            selectedKey="{productTemplate>/SortByTest}"
+                            selectedKey="{productTemplate>/SortBy}"
                             change="onSelectChange"
                         > 
                             <core:Item key="Supplier" text="Supplier"/>
@@ -37,6 +37,7 @@
                             <core:Item key="Price" text="Price"/>
                     
                         </Select>  
+                        <ToggleButton icon="sap-icon://sort" press=".onToggleDescending"/> 
                         <Button text="Add Product" press=".onOpenDialog"/> 
                     </Toolbar> 
                 </headerToolbar> 

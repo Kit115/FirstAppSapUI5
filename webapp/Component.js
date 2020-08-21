@@ -20,8 +20,9 @@ sap.ui.define([
                     Supplier: "",
                     InStock: true
                 },
-                SortByTest : "Price",
-
+                SortBy: "Price",
+                Descending: false,
+                
                 ProductEditable : false
             });
 
